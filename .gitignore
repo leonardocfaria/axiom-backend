@@ -1,0 +1,4 @@
+/.venv
+/config/.secrets.toml
+.pdm-python
+dist
