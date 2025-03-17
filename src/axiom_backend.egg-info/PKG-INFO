@@ -1,0 +1,14 @@
+Metadata-Version: 2.2
+Name: axiom-backend
+Version: 0.1.0
+Summary: Backend for Axiom
+Author-email: lcfaria <126530042+leofaria2005@users.noreply.github.com>
+License: MIT
+Requires-Python: ==3.12.*
+Description-Content-Type: text/markdown
+Requires-Dist: dotenv>=0.9.9
+Requires-Dist: flask>=3.1.0
+Requires-Dist: pymongo>=4.11.2
+Requires-Dist: docling>=2.26.0
+Requires-Dist: google-genai>=1.5.0
+Requires-Dist: dynaconf>=3.2.10

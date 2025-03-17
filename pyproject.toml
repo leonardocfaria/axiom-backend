@@ -1,0 +1,28 @@
+[project]
+name = "axiom-backend"
+version = "0.1.0"
+description = "Backend for Axiom"
+authors = [
+    {name = "lcfaria", email = "126530042+leofaria2005@users.noreply.github.com"},
+]
+
+dependencies = [ 
+                "dotenv>=0.9.9", 
+                "flask>=3.1.0", 
+                "pymongo>=4.11.2", 
+                "docling>=2.26.0", 
+                "google-genai>=1.5.0", 
+                "dynaconf>=3.2.10"]
+
+requires-python = "==3.12.*"
+
+readme = "README.md"
+license = {text = "MIT"}
+
+
+[tool.pdm]
+distribution = true
+
+[tool.pdm.scripts]
+notes_features = {call = "notes_features.main:main"}
+api = {call = "api.main:main"}
