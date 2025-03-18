@@ -1,6 +1,6 @@
 from google import genai
 from notes_features.constants.constants import QUIZ_COLLECTION
-from db import MongoDBHandler
+from notes_features.facade.db import MongoDBHandler
 from notes_features.utils.config import config
 from json import loads
 from bson.objectid import ObjectId
@@ -34,5 +34,16 @@ class QuizHandler:
         )
 
         explanation = response.text
-
         return explanation
+    
+    def delete_quiz(self, quiz_id):
+        return self.db_handler.delete(QUIZ_COLLECTION, {"_id": ObjectId(quiz_id)})
+
+    def get_quizzes_by_user(self, user_id):
+        return self.db_handler.read_many(QUIZ_COLLECTION, {"user_id": ObjectId(user_id)})
+
+    def get_quizzes_by_field(self, field, value):
+        return self.db_handler.read_many(QUIZ_COLLECTION, {field: value})
+
+    def update_quiz(self, quiz_id, field, data):
+        return self.db_handler.update(QUIZ_COLLECTION, {"_id": ObjectId(quiz_id)}, {field: data})

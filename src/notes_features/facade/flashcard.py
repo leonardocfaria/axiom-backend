@@ -27,4 +27,15 @@ class FlashcardHandler:
 
         return x
     
+    def delete_flashcard(self, flashcard_id):
+        return self.db_handler.delete(FLASHCARD_COLLECTION, {"_id": ObjectId(flashcard_id)})
+    
+    def get_flashcards_by_user(self, user_id):
+        return self.db_handler.read_many(FLASHCARD_COLLECTION, {"user_id": ObjectId(user_id)})
+    
+    def get_flashcards_by_field(self, field, value):
+        return self.db_handler.read_many(FLASHCARD_COLLECTION, {field: value})
+    
+    def update_flashcard(self, flashcard_id, field, data):
+        return self.db_handler.update(FLASHCARD_COLLECTION, {"_id": ObjectId(flashcard_id)}, field, data)
     
